@@ -1,116 +1,19 @@
 import { Icon } from '@iconify/react';
-import { useState } from 'react';
-import { router } from '@inertiajs/react';
-
-export default function Header({ userName = 'Marie Dupont', userAvatar, onMobileMenuOpen }) {
-    const [dropdownOpen, setDropdownOpen] = useState(false);
-
-    return (
-        <header className="h-18 sm:h-20 bg-white border-b border-[#E4E9F2] px-4 sm:px-8 lg:px-10 flex items-center justify-between sticky top-0 z-30 shrink-0">
-            {/* Bouton Menu Burger sur Mobile / Tablette */}
-            <div className="flex items-center gap-3">
-                <button
-                    type="button"
-                    onClick={onMobileMenuOpen}
-                    className="lg:hidden p-2 rounded-[8px] text-[#10245E] hover:bg-[#F8FAFC] border border-[#E2E8F0] flex items-center justify-center cursor-pointer"
-                    aria-label="Ouvrir le menu"
-                >
-                    <Icon icon="griddy-icons:menu" className="w-6 h-6" />
-                </button>
-            </div>
-
-            {/* Actions & Profil Utilisateur droite */}
-            <div className="flex items-center gap-2.5 sm:gap-4">
-                
-                {/* Bouton Publier (Créer une annonce) */}
-                <button
-                    type="button"
-                    className="hidden sm:flex items-center gap-2.5 px-3 h-10 sm:h-11 text-[#334155] hover:text-[#10245E] font-semibold transition-all cursor-pointer"
-                >
-                    <Icon icon="griddy-icons:plus-circle" className="w-7 h-7 text-[#64748B] hover:text-[#10245E] transition-colors" />
-                    <span className="text-[15px]">Publier</span>
-                </button>
-                
-                <button
-                    type="button"
-                    className="sm:hidden relative w-10 h-10 sm:w-11 sm:h-11 rounded-full text-[#64748B] hover:bg-[#F8FAFC] hover:text-[#10245E] flex items-center justify-center transition-all cursor-pointer"
-                >
-                    <Icon icon="griddy-icons:plus-circle" className="w-7 h-7" />
-                </button>
-
-                <div className="hidden sm:block h-5 sm:h-6 w-[1px] bg-[#E2E8F0] mx-0.5" />
-
-                {/* Cloche de Notifications */}
-                <button
-                    type="button"
-                    className="relative w-10 h-10 sm:w-11 sm:h-11 rounded-full text-[#475569] hover:bg-[#F8FAFC] hover:text-[#10245E] border border-transparent hover:border-[#E2E8F0] flex items-center justify-center transition-all cursor-pointer"
-                >
-                    <Icon icon="solar:bell-broken" className="w-6 h-6 text-[#10245E]" />
-                    <span className="absolute top-1.5 sm:top-2 right-1.5 sm:right-2 w-2 h-2 rounded-full bg-[#EF4444] ring-2 ring-white" />
-                </button>
-
-                {/* Messagerie */}
-                <button
-                    type="button"
-                    className="relative w-10 h-10 sm:w-11 sm:h-11 rounded-full text-[#475569] hover:bg-[#F8FAFC] hover:text-[#10245E] border border-transparent hover:border-[#E2E8F0] flex items-center justify-center transition-all cursor-pointer"
-                >
-                    <Icon icon="solar:chat-dots-broken" className="w-6 h-6 text-[#10245E]" />
-                    <span className="absolute -top-2 -right-3 sm:-top-2.5 sm:-right-3.5 min-w-[22px] h-5 sm:h-5.5 px-1.5 rounded-full bg-[#EF4444] text-[10px] sm:text-[11px] font-bold text-white flex items-center justify-center ring-2 ring-white shadow-sm">
-                        99+
-                    </span>
-                </button>
-
-                <div className="h-5 sm:h-6 w-[1px] bg-[#E2E8F0]" />
-
-                {/* Profil Utilisateur */}
-                <div className="relative">
-                    <button
-                        type="button"
-                        onClick={() => setDropdownOpen(!dropdownOpen)}
-                        className="flex items-center gap-2 sm:gap-3 p-1 sm:p-1.5 sm:px-2 rounded-full hover:bg-[#F8FAFC] border border-transparent hover:border-[#E2E8F0] transition-all cursor-pointer"
-                    >
-                        <img
-                            src={userAvatar || 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=150'}
-                            alt={userName}
-                            className="w-12 h-12 rounded-full object-cover object-[center_15%] ring-2 ring-[#E4E9F2] shadow-sm"
-                        />
-                        <span className="text-[13px] sm:text-[14px] font-bold text-[#10245E] hidden md:inline">
-                            {userName}
-                        </span>
-                        <Icon icon="griddy-icons:chevron-down" className="w-4 h-4 text-[#64718F] hidden md:inline" />
-                    </button>
-
-                    {dropdownOpen && (
-                        <div className="absolute right-0 top-[calc(100%+10px)] w-56 bg-white rounded-[12px] border border-[#E4E9F2] shadow-[0_16px_40px_rgba(16,36,94,0.14)] py-2.5 z-50 animate-in fade-in">
-                            <button
-                                type="button"
-                                onClick={() => router.visit('/profile')}
-                                className="w-full px-5 py-3 text-left text-[14px] font-semibold text-[#10245E] hover:bg-[#F8FAFC] flex items-center gap-3 transition-colors"
-                            >
-                                <Icon icon="griddy-icons:user" className="w-5 h-5 text-[#64718F]" />
-                                Mon Profil
-                            </button>
-                            <button
-                                type="button"
-                                onClick={() => router.visit('/settings')}
-                                className="w-full px-5 py-3 text-left text-[14px] font-semibold text-[#10245E] hover:bg-[#F8FAFC] flex items-center gap-3 transition-colors"
-                            >
-                                <Icon icon="griddy-icons:settings" className="w-5 h-5 text-[#64718F]" />
-                                Paramètres
-                            </button>
-                            <div className="h-[1px] bg-[#F1F5F9] my-1.5 mx-3" />
-                            <button
-                                type="button"
-                                onClick={() => router.visit('/login')}
-                                className="w-full px-5 py-3 text-left text-[14px] font-semibold text-[#EF4444] hover:bg-red-50 flex items-center gap-3 transition-colors"
-                            >
-                                <Icon icon="griddy-icons:log-out" className="w-5 h-5 text-[#EF4444]" />
-                                Se déconnecter
-                            </button>
-                        </div>
-                    )}
-                </div>
-            </div>
-        </header>
-    );
+import { Link, router } from '@inertiajs/react';
+import { useEffect, useRef, useState } from 'react';
+import { currentUser } from '../../../data/demo/currentUser';
+import { routes } from '../../../config/routes';
+export default function Header({ userName=currentUser.displayName,userAvatar=currentUser.avatar,onMobileMenuOpen,searchMode='full' }){
+ const [open,setOpen]=useState(false); const ref=useRef(null);
+ useEffect(()=>{const close=e=>!ref.current?.contains(e.target)&&setOpen(false); document.addEventListener('mousedown',close); return()=>document.removeEventListener('mousedown',close)},[]);
+ return <header className="z-30 flex h-16 shrink-0 items-center gap-3 border-b border-[#E4E9F2] bg-white px-4 sm:h-20 sm:px-6 lg:px-8">
+  <button type="button" onClick={onMobileMenuOpen} aria-label="Ouvrir le menu" className="grid h-10 w-10 place-items-center rounded-lg border border-[#E4E9F2] text-[#10245E] lg:hidden"><Icon icon="solar:hamburger-menu-broken" className="h-6 w-6"/></button>
+  {searchMode!=='hidden'&&<form onSubmit={e=>{e.preventDefault(); router.get(routes.listings,{search:e.currentTarget.search.value},{preserveState:true})}} className={`${searchMode==='compact'?'max-w-sm':'max-w-xl'} hidden min-w-0 flex-1 sm:block`}><label className="relative block"><span className="sr-only">Rechercher</span><Icon icon="solar:magnifer-broken" className="absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-[#64718F]"/><input name="search" placeholder="Rechercher un logement, un emploi, un guide..." className="h-11 w-full rounded-full border border-[#D9E1EE] bg-white pl-12 pr-4 text-sm text-[#10245E] outline-none focus:border-[#2F67D8] focus:ring-2 focus:ring-[#EAF1FF]"/></label></form>}
+  <div className="ml-auto flex items-center gap-1 sm:gap-2">
+   <Link href={routes.publish} className="hidden h-10 items-center gap-2 rounded-lg px-3 text-sm font-bold text-[#10245E] hover:bg-[#F5F8FF] md:flex"><Icon icon="solar:add-circle-broken" className="h-5 w-5"/>Publier</Link>
+   <Link href={routes.notifications} aria-label="Notifications" className="relative grid h-10 w-10 place-items-center rounded-full hover:bg-[#F5F8FF]"><Icon icon="solar:bell-broken" className="h-5 w-5"/><span className="absolute right-1 top-0 rounded-full bg-red-500 px-1 text-[9px] font-bold text-white">{currentUser.unreadNotifications}</span></Link>
+   <Link href={routes.messages} aria-label="Messages" className="relative grid h-10 w-10 place-items-center rounded-full hover:bg-[#F5F8FF]"><Icon icon="solar:chat-round-dots-broken" className="h-5 w-5"/><span className="absolute right-0 top-0 rounded-full bg-red-500 px-1 text-[9px] font-bold text-white">{currentUser.unreadMessages}</span></Link>
+   <div className="relative" ref={ref}><button onClick={()=>setOpen(!open)} aria-expanded={open} className="flex items-center gap-2 rounded-full p-1 hover:bg-[#F5F8FF]"><img src={userAvatar} alt="" className="h-10 w-10 rounded-full object-cover"/><span className="hidden text-sm font-bold md:block">{userName}</span><Icon icon="solar:alt-arrow-down-broken" className="hidden h-4 w-4 md:block"/></button>{open&&<div className="absolute right-0 mt-2 w-56 rounded-xl border border-[#E4E9F2] bg-white p-2 shadow-xl"><Link href={routes.profile} className="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-semibold hover:bg-[#F5F8FF]"><Icon icon="solar:user-broken" className="h-5 w-5"/>Mon profil</Link><Link href={routes.settings} className="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-semibold hover:bg-[#F5F8FF]"><Icon icon="solar:settings-broken" className="h-5 w-5"/>Paramètres</Link><Link href="/login" className="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-semibold text-red-600 hover:bg-red-50"><Icon icon="solar:logout-2-broken" className="h-5 w-5"/>Se déconnecter</Link></div>}</div>
+  </div>
+ </header>
 }
