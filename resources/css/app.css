@@ -1,0 +1,79 @@
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../**/*.blade.php';
+@source '../**/*.js';
+@source '../**/*.jsx';
+
+
+
+@theme {
+    --font-sans: 'Plus Jakarta Sans', 'Inter', system-ui, -apple-system, sans-serif;
+    --font-display: 'Plus Jakarta Sans', 'Outfit', sans-serif;
+
+    /* Palette officielle Kangoust */
+    --color-kangoust-navy: #10245E;
+    --color-kangoust-blue: #2F67D8;
+    --color-kangoust-blue-hover: #2458C2;
+    --color-kangoust-soft: #EAF1FF;
+    --color-kangoust-ice: #F5F8FF;
+    --color-kangoust-bg-blue: #EAF3FF;
+    --color-kangoust-orange: #FF9F1C;
+    --color-kangoust-yellow: #FFD46A;
+    --color-kangoust-green: #36A65C;
+    --color-kangoust-white: #FFFFFF;
+    --color-kangoust-text: #10245E;
+    --color-kangoust-gray: #64718F;
+    --color-kangoust-muted: #7A869F;
+    --color-kangoust-border: #E4E9F2;
+    --color-kangoust-border-sec: #D9E1EE;
+    --color-kangoust-card: #FCFDFF;
+
+    /* Fonds pastel d'icônes */
+    --color-kangoust-pastel-blue: #EEF3FF;
+    --color-kangoust-pastel-green: #ECF8F0;
+    --color-kangoust-pastel-orange: #FFF4E5;
+    --color-kangoust-pastel-purple: #F3EEFF;
+}
+
+/* Custom Hero Background */
+.hero-gradient-bg {
+    background:
+        radial-gradient(circle at 88% 22%,
+            rgba(255, 212, 106, 0.28) 0%,
+            rgba(255, 212, 106, 0.10) 16%,
+            transparent 32%),
+        linear-gradient(105deg,
+            #FFFFFF 0%,
+            #FFFFFF 38%,
+            #F5F8FF 62%,
+            #EAF3FF 100%);
+}
+
+/* Card shadow */
+.kangoust-card-shadow {
+    box-shadow: 0 6px 24px rgba(16, 36, 94, 0.05);
+}
+
+.kangoust-card-shadow:hover {
+    box-shadow: 0 12px 32px rgba(16, 36, 94, 0.08);
+}
+
+@layer base {
+    html {
+        font-size: 78%;
+    }
+}
+
+@keyframes wave-hand {
+    0%, 100% { transform: rotate(0deg); }
+    20%, 60% { transform: rotate(14deg); }
+    40%, 80% { transform: rotate(-14deg); }
+}
+
+.animate-wave {
+    display: inline-block;
+    animation: wave-hand 2s ease-in-out infinite;
+    transform-origin: 70% 70%;
+}
