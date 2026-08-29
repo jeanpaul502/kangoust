@@ -29,7 +29,7 @@ export default function RecommendedJobs() {
         <div className="space-y-3.5 flex flex-col h-full justify-between">
             {/* Header avec Lien Voir tout */}
             <div className="flex items-center justify-end">
-                <Link href="#" className="text-[12.5px] font-bold text-[#2F67D8] hover:underline">
+                <Link href="/travail" className="text-[12.5px] font-bold text-[#2F67D8] hover:underline">
                     Voir tout
                 </Link>
             </div>

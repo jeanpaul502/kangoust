@@ -1,0 +1,2 @@
+import { Head, Link } from '@inertiajs/react';
+export default function NotFound(){return <main className="min-h-screen grid place-items-center bg-[#F5F8FF] p-6 text-center"><Head title="Page introuvable"/><div><p className="text-sm font-bold text-[#2F67D8]">404</p><h1 className="mt-3 text-3xl font-extrabold text-[#10245E]">Page introuvable</h1><p className="mt-3 text-[#64718F]">La page demandée n’existe pas ou a été déplacée.</p><Link href="/dashboard" className="mt-6 inline-block rounded-lg bg-[#2F67D8] px-5 py-3 font-bold text-white">Retour à l’accueil</Link></div></main>}

@@ -50,7 +50,7 @@ export default function RecommendedVehicles() {
                     </span>
                 </h3>
                 <Link 
-                    href="#" 
+                    href="/vehicules"
                     className="text-[12.5px] font-bold text-[#2F67D8] hover:text-[#2458C2] hover:underline"
                 >
                     Voir tout

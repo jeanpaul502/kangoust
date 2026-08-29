@@ -1,5 +1,6 @@
 @import 'tailwindcss';
 
+
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
 @source '../../storage/framework/views/*.php';
 @source '../**/*.blade.php';
@@ -9,8 +10,8 @@
 
 
 @theme {
-    --font-sans: 'Plus Jakarta Sans', 'Inter', system-ui, -apple-system, sans-serif;
-    --font-display: 'Plus Jakarta Sans', 'Outfit', sans-serif;
+    --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    --font-display: 'Plus Jakarta Sans', system-ui, sans-serif;
 
     /* Palette officielle Kangoust */
     --color-kangoust-navy: #10245E;
@@ -60,11 +61,7 @@
     box-shadow: 0 12px 32px rgba(16, 36, 94, 0.08);
 }
 
-@layer base {
-    html {
-        font-size: 78%;
-    }
-}
+@layer base { html { font-size: 100%; } body { margin: 0; min-width: 320px; } button, a, input { outline-color: #2F67D8; } }
 
 @keyframes wave-hand {
     0%, 100% { transform: rotate(0deg); }
@@ -76,4 +73,4 @@
     display: inline-block;
     animation: wave-hand 2s ease-in-out infinite;
     transform-origin: 70% 70%;
-}
+}

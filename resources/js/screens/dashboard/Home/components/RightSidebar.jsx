@@ -146,7 +146,7 @@ export default function RightSidebar() {
 
                     <div className="pt-0.5">
                         <Link
-                            href="#"
+                            href="/guide"
                             className="inline-flex items-center gap-1.5 text-[12.5px] font-bold text-[#2F67D8] hover:text-[#2458C2] hover:underline"
                         >
                             <span>Voir toutes les étapes</span>
@@ -248,7 +248,7 @@ export default function RightSidebar() {
                         {/* Pied d'action avec icônes Griddy */}
                         <div className="flex items-center justify-between pt-2.5 border-t border-[#F1F5F9] mt-2">
                             <Link
-                                href="#"
+                                href="/evenements"
                                 className="inline-flex items-center gap-1.5 text-[12px] font-bold text-[#64718F] hover:text-[#10245E] transition-colors"
                             >
                                 <span>Voir les détails</span>

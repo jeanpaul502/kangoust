@@ -23,19 +23,20 @@ Route::post('/login',   fn() => back())->name('login.post');
 Route::get('/register', fn() => Inertia::render('Auth/Register'))->name('register');
 Route::get('/forgot-password', fn() => Inertia::render('Auth/ForgotPassword'))->name('password.request');
 Route::get('/reset-password',  fn() => Inertia::render('Auth/ResetPassword'))->name('password.reset');
-Route::get('/verify-email',    fn() => Inertia::render('Auth/VerifyEmail'))->name('verification.notice');
+Route::get('/verify-email', fn() => redirect('/verification-email'));
+Route::get('/verification-email', fn() => Inertia::render('Auth/VerifyEmail'))->name('verification.notice');
+Route::get('/verification-email/code', fn() => Inertia::render('Auth/VerifyEmailCode'))->name('verification.code');
 
 // ── Onboarding ────────────────────────────────────────────────────────────────
 Route::get('/onboarding', fn() => Inertia::render('Onboarding'))->name('onboarding');
 
 // ── Dashboard ─────────────────────────────────────────────────────────────────
-Route::get('/dashboard',  fn() => Inertia::render('Dashboard'))->name('dashboard');
-
 // ── Chargement des modules de routes spécifiques ──────────────────────────────
 $moduleRoutes = [
-    'onboarding',
+    'onboarding', 'dashboard', 'listings',
     'work', 'housing', 'vehicles', 'events',
-    'matching', 'messages', 'guide', 'community'
+    'matching', 'messages', 'guide', 'community',
+    'searches', 'favorites', 'cv', 'notifications', 'profile', 'settings', 'system',
 ];
 
 foreach ($moduleRoutes as $module) {
